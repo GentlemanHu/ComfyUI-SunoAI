@@ -16,7 +16,7 @@ documentation = "https://suno-api.readthedocs.io/en/latest/"
 suno = "suno.cli:app"
 
 [tool.poetry.dependencies]
-python = "^3.12"
+python = "^3.10"
 curl_cffi = "^0.6.1"
 typer = {extras = ["all"], version = "^0.10.0"}
 fastapi = "^0.110.0"

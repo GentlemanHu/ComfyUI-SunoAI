@@ -51,20 +51,7 @@ class SongGenerateParams(BaseModel):
 class Client:
 
     headers = {
-        "Accept": "*/*",
-        "Accept-Encoding": "gzip, deflate, br, zstd",
-        "Accept-Language": "zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7",
-        "Dnt": "1",
-        "Origin": "https://suno.com",
-        "Priority": "u=1, i",
-        "Referer": "https://suno.com/",
-        "Sec-Ch-Ua": '"Chromium";v="124", "Google Chrome";v="124", "Not-A.Brand";v="99"',
-        "Sec-Ch-Ua-Mobile": "?0",
-        "Sec-Ch-Ua-Platform": '"macOS"',
-        "Sec-Fetch-Dest": "empty",
-        "Sec-Fetch-Mode": "cors",
-        "Sec-Fetch-Site": "same-site",
-        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+       "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"
     }
 
     def __init__(self, cookie: str) -> None:
@@ -94,16 +81,15 @@ class Suno(Client):
         self.songs = Songs(self)
 
     def _get_sid(self) -> str:
-        url = f"https://clerk.suno.ai/v1/client?_clerk_js_version={_client_js_version_}"
+        url = f"https://clerk.suno.com/v1/client?_clerk_js_version={_client_js_version_}"
         response = super().request("GET", url)
-        # print(response.content)
         if not response.ok:
             raise Exception(f"failed to get SID: {response.status_code}")
         data = response.json()
         return data.get("response").get("last_active_session_id")
 
     def _get_jwt(self) -> str:
-        url = f"https://clerk.suno.ai/v1/client/sessions/{self._sid}/tokens/api?_clerk_js_version={_client_js_version_}"
+        url = f"https://clerk.suno.com/v1/client/sessions/{self._sid}/tokens?_clerk_js_version={_client_js_version_}"
         response = super().request("POST", url)
         if not response.ok:
             raise Exception(f"failed to get JWT: {response.status_code}")

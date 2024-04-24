@@ -1,2 +1,3 @@
 curl_cffi
 typer
+python-dotenv

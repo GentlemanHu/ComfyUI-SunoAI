@@ -1,4 +1,16 @@
-# Suno AI API
+# ComfyUI Suno API
+
+
+## 包装Suno API的ComfyUI节点
+
+
+-----
+-----
+
+
+
+## 以下是原仓库README
+
 
 [![GitHub][github_badge]][github_link] [![PyPI][pypi_badge]][pypi_link]
 

@@ -267,6 +267,6 @@ def _audio_url(id: str) -> str:
 def _audio_file(id: str, root: str = ".",name:str="") -> str:
     if name is None or "":
         name = f"suno-{id}.mp3"
-    output_dir = pathlib.Path(root) / ".suno"
+    output_dir = pathlib.Path(root)
     output_dir.mkdir(parents=True, exist_ok=True)
     return output_dir / f"{name}"

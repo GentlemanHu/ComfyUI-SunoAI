@@ -50,15 +50,18 @@ class SunoAIGenerator:
             custom_suffix = "_sunoai"  # Use "_sunoai" suffix
 
             # Download and rename songs
+            audio_paths = {}  # Dictionary to store audio paths
+
             for i, song in enumerate([song1, song2]):
                 file = f"{filename}_{_datetime}_{custom_suffix}_{i+1}.mp3"
-                audio_path = os.path.join(full_output_folder, file)  # Path within subfolder
+                audio_path = os.path.join(full_output_folder, file) 
 
-                download(song, root=full_output_folder,name=file)
-                # os.rename(_audio_file(song.id, root=subfolder_path), audio_path)
+                download(song, root=full_output_folder, name=file)
+                audio_paths[song.id] = audio_path  # Store path with song ID as key
 
-            
-            return url1, url2, audio_path, audio_path
+            # ... rest of your code
+
+            return url1, url2, audio_paths[song1.id], audio_paths[song2.id]
 
         except Exception as e:
             print(f"Error generating songs: {e}")
@@ -112,16 +115,19 @@ class SunoAIGeneratorNotSafe:
             _datetime = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
             custom_suffix = "_sunoai"  # Use "_sunoai" suffix
 
-            # Download and rename songs
+# Download and rename songs
+            audio_paths = {}  # Dictionary to store audio paths
+
             for i, song in enumerate([song1, song2]):
                 file = f"{filename}_{_datetime}_{custom_suffix}_{i+1}.mp3"
-                audio_path = os.path.join(full_output_folder, file)  # Path within subfolder
+                audio_path = os.path.join(full_output_folder, file) 
 
-                download(song, root=full_output_folder,name=file)
-                # os.rename(_audio_file(song.id, root=subfolder_path), audio_path)
+                download(song, root=full_output_folder, name=file)
+                audio_paths[song.id] = audio_path  # Store path with song ID as key
 
-            
-            return url1, url2, audio_path, audio_path
+            # ... rest of your code
+
+            return url1, url2, audio_paths[song1.id], audio_paths[song2.id]
 
         except Exception as e:
             print(f"Error generating songs: {e}")

@@ -231,6 +231,7 @@ class Songs(APIResource):
 def download(
     song: str | Song,
     root: str = ".",
+    name: str = "",
 ) -> None:
     id = _get_id(song)
     print(f"id: {id}")
@@ -241,7 +242,7 @@ def download(
         raise Exception(
             f"failed to download from audio url: {response.status_code}"
         )
-    file = _audio_file(id, root)
+    file = _audio_file(id, root,name)
     with open(file, "wb") as f:
         f.write(response.content)
     print(f"audio file: {file}")
@@ -263,7 +264,9 @@ def _audio_url(id: str) -> str:
     return f"https://cdn1.suno.ai/{id}.mp3"
 
 
-def _audio_file(id: str, root: str = ".") -> str:
+def _audio_file(id: str, root: str = ".",name:str="") -> str:
+    if name is None or "":
+        name = f"suno-{id}.mp3"
     output_dir = pathlib.Path(root) / ".suno"
     output_dir.mkdir(parents=True, exist_ok=True)
-    return output_dir / f"suno-{id}.mp3"
+    return output_dir / f"{name}"

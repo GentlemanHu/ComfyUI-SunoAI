@@ -3,15 +3,17 @@
 
 ## 包装Suno API的ComfyUI节点
 
-<img width="489" alt="image" src="https://github.com/GentlemanHu/ComfyUI-SunoAI/assets/34559079/77c603c5-d004-4d00-83ce-2325b142a381">
+<img width="680" alt="image" src="https://github.com/GentlemanHu/ComfyUI-SunoAI/assets/34559079/b7d022b0-44a1-4ded-9f44-70ef0f1f07a6">
+
 
 ### 两个节点：
 
-- **SunoAIGenerator** 读取本地 .env 设置suno cookie
-- **SunoAIGeneratorNotSafe** suno-cookie实时放入节点读取，不安全
+- ***SunoAIGenerator***    读取本地 .env 设置`suno cookie`
+- ***SunoAIGeneratorNotSafe***    `suno cookie`实时放入节点读取，不安全
 
 
 
+-----
 -----
 -----
 

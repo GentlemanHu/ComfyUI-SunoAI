@@ -1,0 +1,15 @@
+[project]
+name = "comfyui-sunoai"
+description = "An unofficial Python library for [a/Suno AI](https://www.suno.ai/) API"
+version = "1.0.0"
+license = "LICENSE"
+dependencies = ["curl_cffi", "typer", "python-dotenv"]
+
+[project.urls]
+Repository = "https://github.com/GentlemanHu/ComfyUI-SunoAI"
+#  Used by Comfy Registry https://comfyregistry.org
+
+[tool.comfy]
+PublisherId = ""
+DisplayName = "ComfyUI-SunoAI"
+Icon = ""

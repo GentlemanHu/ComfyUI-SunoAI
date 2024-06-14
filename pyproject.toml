@@ -10,6 +10,6 @@ Repository = "https://github.com/GentlemanHu/ComfyUI-SunoAI"
 #  Used by Comfy Registry https://comfyregistry.org
 
 [tool.comfy]
-PublisherId = ""
+PublisherId = "gentlemanhu"
 DisplayName = "ComfyUI-SunoAI"
 Icon = ""

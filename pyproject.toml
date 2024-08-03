@@ -1,7 +1,7 @@
 [project]
 name = "comfyui-sunoai"
 description = "An unofficial Python library for [a/Suno AI](https://www.suno.ai/) API"
-version = "1.0.0"
+version = "1.0.1"
 license = { file = "LICENSE" }
 dependencies = ["curl_cffi", "typer", "python-dotenv"]
 
